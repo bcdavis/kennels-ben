@@ -1,17 +1,17 @@
 import React from "react"
 import { Route } from "react-router-dom"
-import { Kennel } from "./Kennel.js"
+import { Home } from "./Home.js"
 import { AnimalCard } from "./animal/AnimalCard.js"
 import { Customer } from "./customer/Customer.js"
 import { Employee } from "./employee/Employee.js"
 import { Location } from "./location/Location.js"
 
-export const ApplicationViews = (props) => {
+export const ApplicationViews = () => {
     return (
         <>
             {/* Render the Kennel home page when http://localhost:3000/ */}
             <Route exact path="/">
-                <Kennel />
+                <Home kennelName="NSS Kennel"/>
             </Route>
 
             {/* Render the animal list when http://localhost:3000/animals */}
