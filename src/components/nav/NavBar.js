@@ -23,3 +23,5 @@ export const NavBar = (props) => {
         </ul>
     )
 }
+
+ // if you want to stay on the same page when navigating, use the <Link > tag
