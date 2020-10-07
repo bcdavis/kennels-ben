@@ -16,6 +16,7 @@ import { EmployeeDetail } from "./employee/EmployeeDetail.js"
 //import { Employee } from "./employee/EmployeeCard.js"
 import { LocationProvider } from "./location/LocationProvider.js"
 import { LocationList } from "./location/LocationList.js"
+import { LocationDetail } from "./location/LocationDetail.js"
 //import { Location } from "./location/Location.js"
 
 export const ApplicationViews = () => {
@@ -70,10 +71,19 @@ export const ApplicationViews = () => {
 
             {/* Render the location list when http://localhost:3000/locations */}
             <LocationProvider>
-                <Route exact path="/locations">
-                    <LocationList />
-                </Route>
-            </LocationProvider> 
+                <AnimalProvider>
+                    <EmployeeProvider>
+                        <Route exact path="/locations">
+                            <LocationList />
+                        </Route>
+
+                        
+                        <Route path="/locations/:locationId(\d+)" render={
+                            props => <LocationDetail {...props} />
+                        } />
+                    </EmployeeProvider>
+                </AnimalProvider>
+            </LocationProvider>
 
             {/* Render the employee list when http://localhost:3000/employees */}
             <EmployeeProvider>

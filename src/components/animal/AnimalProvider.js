@@ -9,7 +9,7 @@ export const AnimalContext = createContext()
 // Nothing is stored in the context when it's defined. At this point, it's just an empty warehouse waiting to be filled.
 
 /*
- This component establishes what data can be used.
+This component establishes what data can be used.
  */
 export const AnimalProvider = (props) => {
     const [animals, setAnimals] = useState([]) // State hook
@@ -53,6 +53,24 @@ export const AnimalProvider = (props) => {
             .then(res => res.json())
     }
 
+    const releaseAnimal = (animalId) => {
+        return fetch(`http://localhost:8088/animals/${animalId}`, {
+            method: "DELETE"
+        })
+            .then(getAnimals)
+    }
+
+    const updateAnimal = (animalObj) => {
+        return fetch(`http://localhost:8088/animals/${animalObj.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(animalObj)
+        })
+            .then(getAnimals)
+    }
+
     /*
         You return a context provider which has the
         `animals` state, the `addAnimals` function,
@@ -67,7 +85,7 @@ export const AnimalProvider = (props) => {
     // we define which values we want to put in context.Provider
     return (
         <AnimalContext.Provider value={{
-            animals, getAnimals, addAnimal, getAnimalById
+            animals, getAnimals, addAnimal, getAnimalById, releaseAnimal, updateAnimal
         }}>
             {props.children}
         </AnimalContext.Provider>
