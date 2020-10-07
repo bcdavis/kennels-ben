@@ -22,6 +22,8 @@ h5,
 h6 {
   font-family: "Patua One", serif;
   letter-spacing: 2px;
+  margin-block-start: 0;
+  margin-block-end: 0.5em;
 }
 
 p {
@@ -35,5 +37,14 @@ strong {
 }
 
 address {
-  margin: 0 0 1.5em;
+  margin: 0 0 1em 0;
+}
+
+.homeContent {
+  background-color: white;
+  padding: 1em 0.8em;
+}
+
+.homeContent > h1 {
+  margin: 0;
 }

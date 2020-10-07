@@ -3,11 +3,16 @@ import { Route } from "react-router-dom"
 import { Home } from "./Home.js"
 import { AnimalProvider } from "./animal/AnimalProvider.js"
 import { AnimalList } from "./animal/AnimalList.js"
+import { AnimalForm } from "./animal/AnimalForm.js"
+import { AnimalDetail } from "./animal/AnimalDetail.js"
+
 import { CustomerProvider } from "./customer/CustomerProvider.js"
 import { CustomerList } from "./customer/CustomerList.js"
 //import { Customer } from "./customer/CustomerCard.js"
 import { EmployeeProvider } from "./employee/EmployeeProvider.js"
 import { EmployeeList } from "./employee/EmployeeList.js"
+import { EmployeeForm } from "./employee/EmployeeForm.js"
+import { EmployeeDetail } from "./employee/EmployeeDetail.js"
 //import { Employee } from "./employee/EmployeeCard.js"
 import { LocationProvider } from "./location/LocationProvider.js"
 import { LocationList } from "./location/LocationList.js"
@@ -18,7 +23,7 @@ export const ApplicationViews = () => {
         <>
             {/* Render the Kennel home page when http://localhost:3000/ */}
             <Route exact path="/">
-                <Home kennelName="NSS Kennel"/>
+                <Home greeting="Welcome to Nashville Kennels"/>
             </Route>
 
             {/* Render the animal list when http://localhost:3000/animals */}
@@ -27,6 +32,41 @@ export const ApplicationViews = () => {
                     <AnimalList />
                 </Route>
             </AnimalProvider> 
+
+            <AnimalProvider>
+                <Route exact path="/animals/:animalId(\d+)">
+                {/* (\d+) converts character(s) into digits*/}   
+                    <AnimalDetail />
+                </Route>
+            </AnimalProvider>
+
+            {/* Render the add animals form when http://localhost:3000/animals/create */}
+            <AnimalProvider>
+                <LocationProvider>
+                    <CustomerProvider>
+                        <Route exact path="/animals/create">
+                            <AnimalForm />
+                        </Route>
+                    </CustomerProvider>
+                </LocationProvider>
+            </AnimalProvider>
+
+            {/* 
+            <AnimalProvider>
+                <Route exact path="/animals">
+                    <AnimalList />
+                </Route>
+
+                <CustomerProvider>
+                    <LocationProvider>
+                        <Route exact path="/animals/create">
+                            <AnimalForm />
+                        </Route>
+                    </LocationProvider>
+                </CustomerProvider>
+
+            </AnimalProvider>  
+            */}
 
             {/* Render the location list when http://localhost:3000/locations */}
             <LocationProvider>
@@ -37,9 +77,23 @@ export const ApplicationViews = () => {
 
             {/* Render the employee list when http://localhost:3000/employees */}
             <EmployeeProvider>
-                <Route exact path="/employees">
-                    <EmployeeList />
-                </Route>
+                <AnimalProvider>
+                    <LocationProvider>
+                        <Route exact path="/employees" render={
+                            props => <EmployeeList {...props} /> /* This passes in the history array as a prop?*/
+                        }>
+                        </Route>
+                        <Route exact path="/employees/create" render={
+                            props => <EmployeeForm {...props} /> /* This passes in the history array as a prop?*/
+                        }>
+                        </Route>
+                        {/* New route for showing employee details */}
+                        <Route path="/employees/:employeeId(\d+)" render={
+                            props => <EmployeeDetail {...props} />
+                        }>
+                        </Route>
+                    </LocationProvider>
+                </AnimalProvider>
             </EmployeeProvider>
 
             {/* Render the customer list when http://localhost:3000/customers */}

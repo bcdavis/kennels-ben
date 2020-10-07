@@ -1,6 +1,20 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import "./Animal.css"
 
+// from chapter 13 (what I see), form chapter 11 (from what Brenda sees?)
+export const AnimalCard = ({ animal }) => (
+    <section className="animal">
+        <h3 className="animal__name">
+            <Link to={`/animals/${animal.id}`}>
+                { animal.name }
+            </Link>
+        </h3>
+        <div className="animal__breed">{ animal.breed }</div>
+    </section>
+)
+
+/*
 // 'animal' is passed in by .map in return of animalList on line 50 of AnimalList.js
 export const AnimalCard = ({animal}) => (
     <section className="animal">
@@ -9,6 +23,7 @@ export const AnimalCard = ({animal}) => (
         <address className="location__address">{animal.location.name}</address>
     </section>
 )
+*/
 
 /*
 // another way to do it if we want to pass in multiple things

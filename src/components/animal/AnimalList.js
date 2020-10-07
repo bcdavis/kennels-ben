@@ -4,6 +4,7 @@
  */
 
 import React, { useContext, useEffect } from "react" // useContext is the context hook tha tis used to access context exposed by a parent object
+import {useHistory} from "react-router-dom"
 import { AnimalContext } from "./AnimalProvider.js" // gives us animals, getAnimals, addAnimals
 import { AnimalCard } from "./AnimalCard.js"
 import "./Animal.css"
@@ -12,9 +13,31 @@ import "./Animal.css"
  * 2. Define export
  */
 
+ /*
+const history = useHistory()
+
+return (
+    <>
+    <div className="animals">
+        <h2>Animals</h2>
+			<button onClick={() => {history.push("/animals/create")}}>
+                Add Animal
+        	</button>
+         {
+			animals.map(animal => {
+				return <AnimalCard key={animal.id} animal={animal} />
+			})
+        }
+    </div>
+    </>
+)
+*/
+
 export const AnimalList = () => {
    // This state changes when `getAnimals()` is invoked below
     const { animals, getAnimals } = useContext(AnimalContext)
+    
+    const history = useHistory()
 
     // defines a set of data 'animals' and a method to update/access it 'getAnimals'
     // 'animals' is accessing the animals value in AnimalContext from AnimalProvider
@@ -36,7 +59,25 @@ export const AnimalList = () => {
  */
 
     return (	
-
+        <>
+            <div className="animals">
+                <div className="titleAndButton--animal">
+                    <h1>Animals</h1>
+                        <button onClick={() => {history.push("/animals/create")}}>
+                            Add Animal
+                        </button>
+                </div>
+                <article className="animalList">
+                    {
+                        animals.map(animal => {
+                            return <AnimalCard key={animal.id} breed={animal.breed} animal={animal} />
+                        })
+                    }
+                </article>
+            </div>
+        </>
+    )
+/*
         // Use the .map() array method to iterate the array of animals and generate HTML 
         // for each one by invoking the AnimalCard component function.
 		<div className="animals">
@@ -54,4 +95,6 @@ export const AnimalList = () => {
             }
         </div>
     )
+    */
 }
+

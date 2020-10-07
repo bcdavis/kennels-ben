@@ -14,13 +14,18 @@ export const LocationList = () => {
     }, []) 
 
     return (	
-		<div className="Locations">
-		    {console.log("LocationList: Render")}
-            {
-			    locations.map(location => {
-				    return <LocationCard key={location.id} location={location} />
-			    })
-            }
+		<div className="locations">
+            <div className="title--location">
+                <h1>Locations</h1>
+            </div>
+            {console.log("LocationList: Render")}
+            <article className="locaitonList">
+                {
+                    locations.map(location => {
+                        return <LocationCard key={location.id} location={location} />
+                    })
+                }
+            </article>
         </div>
     )
 }

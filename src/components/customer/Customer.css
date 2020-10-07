@@ -1,7 +1,5 @@
-.customers{   
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+.customers {   
+    background-color: white;
 }
 
 .customer {
@@ -10,3 +8,22 @@
     padding: 1em;
     border: 1px solid goldenrod;
 }
+
+.title--customer {
+    padding: 1em;
+
+}
+
+.customerList {
+    display: block;
+    /* flex-wrap: wrap; */
+    /* justify-content: space-between; */
+}
+
+/* .customerForm {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 24em;
+    
+} */

@@ -1,7 +1,8 @@
 .locations {   
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    /* justify-content: space-between; */
+    background-color: white;
 }
 
 .location {
@@ -10,3 +11,28 @@
     padding: 1em;
     border: 1px solid goldenrod;
 }
+
+.title--location {
+    padding: 1em;
+
+}
+
+.locaitonList {
+    display: block;
+    /* flex-wrap: wrap; */
+    /* justify-content: space-between; */
+}
+
+/* .locationCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.locationForm {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 24em;
+    
+} */
