@@ -12,15 +12,6 @@ import "./index.css"
 
 */
 
-/*
-ReactDOM.render(
-  <React.StrictMode>
-    <KennelHome kennelName="NSS Kennel"/> 
-  </React.StrictMode>,
-  document.getElementById('root'),
-  console.log("Make sure kennel-api is running!")
-);*/
-
 ReactDOM.render(
   <React.StrictMode>
       <Router>

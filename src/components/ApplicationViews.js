@@ -8,16 +8,15 @@ import { AnimalDetail } from "./animal/AnimalDetail.js"
 
 import { CustomerProvider } from "./customer/CustomerProvider.js"
 import { CustomerList } from "./customer/CustomerList.js"
-//import { Customer } from "./customer/CustomerCard.js"
+
 import { EmployeeProvider } from "./employee/EmployeeProvider.js"
 import { EmployeeList } from "./employee/EmployeeList.js"
 import { EmployeeForm } from "./employee/EmployeeForm.js"
 import { EmployeeDetail } from "./employee/EmployeeDetail.js"
-//import { Employee } from "./employee/EmployeeCard.js"
+
 import { LocationProvider } from "./location/LocationProvider.js"
 import { LocationList } from "./location/LocationList.js"
 import { LocationDetail } from "./location/LocationDetail.js"
-//import { Location } from "./location/Location.js"
 
 export const ApplicationViews = () => {
     return (
@@ -34,6 +33,7 @@ export const ApplicationViews = () => {
                 </Route>
             </AnimalProvider> 
 
+            {/* Render a specific animal to see its details */}
             <AnimalProvider>
                 <Route exact path="/animals/:animalId(\d+)">
                 {/* (\d+) converts character(s) into digits*/}   
@@ -52,22 +52,15 @@ export const ApplicationViews = () => {
                 </LocationProvider>
             </AnimalProvider>
 
-            {/* 
             <AnimalProvider>
-                <Route exact path="/animals">
-                    <AnimalList />
-                </Route>
-
-                <CustomerProvider>
-                    <LocationProvider>
-                        <Route exact path="/animals/create">
+                <LocationProvider>
+                    <CustomerProvider>
+                        <Route path="/animals/edit/:animalId(\d+)">
                             <AnimalForm />
                         </Route>
-                    </LocationProvider>
-                </CustomerProvider>
-
-            </AnimalProvider>  
-            */}
+                    </CustomerProvider>
+                </LocationProvider>
+            </AnimalProvider>
 
             {/* Render the location list when http://localhost:3000/locations */}
             <LocationProvider>

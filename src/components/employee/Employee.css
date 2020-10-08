@@ -1,7 +1,4 @@
 .employees {   
-    /* display: flex; */
-    /* flex-wrap: wrap; */
-    /* justify-content: space-between; */
     background-color: white;
 }
 
@@ -32,4 +29,8 @@
     margin: 0 auto;
     width: 24em;
     
+}
+
+.employee__name {
+    font-size: 2em;
 }

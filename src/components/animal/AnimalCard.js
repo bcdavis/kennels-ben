@@ -2,15 +2,14 @@ import React from "react"
 import { Link } from "react-router-dom"
 import "./Animal.css"
 
-// from chapter 13 (what I see), form chapter 11 (from what Brenda sees?)
 export const AnimalCard = ({ animal }) => (
     <section className="animal">
-        <h3 className="animal__name">
+        <h3 className="animal-card--name">
             <Link to={`/animals/${animal.id}`}>
                 { animal.name }
             </Link>
         </h3>
-        <div className="animal__breed">{ animal.breed }</div>
+        <div className="animal-card--breed">{ animal.breed }</div>
     </section>
 )
 

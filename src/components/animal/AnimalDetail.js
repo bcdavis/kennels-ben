@@ -30,12 +30,12 @@ export const AnimalDetail = (props) => {
     return (
         <section className="animal">
             <h3 className="animal__name">{animal?.name}</h3>
-            <div className="animal__breed">{animal?.breed}</div>
+            <div className="animal__breed"><strong>Breed:</strong> {animal?.breed}</div>
             {/* ? null safe operator 
                 place after expected object, tell program to not die if animal is not an object?
             */}
-            <div className="animal__location">Location: {animal?.location.name}</div>
-            <div className="animal__owner">Customer: {animal?.customer.name}</div>
+            <div className="animal__location"><strong>Location:</strong> {animal?.location.name}</div>
+            <div className="animal__owner"><strong>Customer:</strong> {animal?.customer.name}</div>
             <button onClick={
                 () => {
                     releaseAnimal(animal.id) // also works with animalId
@@ -43,12 +43,13 @@ export const AnimalDetail = (props) => {
                             history.push("/animals")
                         })
                 }
-            }>
-                Release Animal
-            </button>
-            {/* <button onClick={() => {
+            }>Release Animal</button>
+            
+            <button onClick={() => {
+                // if animal id is in url, we will use the animalForm to edit an animal, 
+                // otherwise, we create a new animal
                 history.push(`/animals/edit/${animal.id}`)
-            }}>Edit</button> */}
+            }}>Edit</button>
         </section>
     )
 }

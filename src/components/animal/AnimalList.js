@@ -13,26 +13,6 @@ import "./Animal.css"
  * 2. Define export
  */
 
- /*
-const history = useHistory()
-
-return (
-    <>
-    <div className="animals">
-        <h2>Animals</h2>
-			<button onClick={() => {history.push("/animals/create")}}>
-                Add Animal
-        	</button>
-         {
-			animals.map(animal => {
-				return <AnimalCard key={animal.id} animal={animal} />
-			})
-        }
-    </div>
-    </>
-)
-*/
-
 export const AnimalList = () => {
    // This state changes when `getAnimals()` is invoked below
     const { animals, getAnimals } = useContext(AnimalContext)

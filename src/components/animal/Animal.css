@@ -17,12 +17,6 @@
     margin: 0;
 }
 
-/* .titleAndButton--animal > button {
-    background-color: rgb(228, 228, 228);
-    border-radius: 3px;
-    border-width: 1px;
-} */
-
 .animalList {
     display: flex;
     flex-wrap: wrap;
@@ -38,5 +32,9 @@
 
 .animalForm__title {
     align-self: center;
+    font-size: 2em;
+}
+
+.animal__name { 
     font-size: 2em;
 }
